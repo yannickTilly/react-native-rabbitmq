@@ -141,7 +141,7 @@ class RabbitMqConnection extends ReactContextBaseJavaModule  {
                    
 
                     this.channel = connection.createChannel();
-                    this.channel.basicQos(1);
+                    this.channel.basicQos(0);
 
                     this.channel.addConfirmListener(new ConfirmListener() {
 
