@@ -93,7 +93,7 @@ react-native link
 
 ## Android
 
-npm install react-native-rabbitmq --save
+npm install --save https://github.com/yannickTilly/react-native-rabbitmq.git
 
 react-native link
 
