@@ -7,7 +7,7 @@
 ## RN 0.60 >
 
 ## IOS
-npm install react-native-rabbitmq --save
+npm install --save https://github.com/yannickTilly/react-native-rabbitmq.git
 
 cd ./ios
 
@@ -18,13 +18,13 @@ pod install
 
 ## Android
 
-npm install react-native-rabbitmq --save
+npm install --save https://github.com/yannickTilly/react-native-rabbitmq.git
 
 ## RN 0.60 <
 
 ## IOS
 
-npm install react-native-rabbitmq --save
+npm install --save https://github.com/yannickTilly/react-native-rabbitmq.git
 
  Installation with CocoaPods
 
@@ -107,13 +107,13 @@ const config = {
 	port:5672,
 	username:'user',
 	password:'password',
-	virtualhost:'vhost',
+	virtualhost:'/',
 	ttl: 10000 // Message time to live,
 	ssl: true // Enable ssl connection, make sure the port is 5671 or an other ssl port
 }
 
 let connection = new Connection(config);
-
+connection.connect();
 connection.on('error', (event) => {
 
 });
@@ -149,14 +149,14 @@ connection.on('connected', (event) => {
 	queue.on('messages', (data) => {
 
 	});
+	
+	let message = 'test';
+	let routing_key = '';
+	let properties = {
+		expiration: 10000
+	}
+	exchange.publish(message, routing_key, properties)
 
 });
-
-let message = 'test';
-let routing_key = '';
-let properties = {
-	expiration: 10000
-}
-exchange.publish(data, routing_key, properties)
 
 ```
